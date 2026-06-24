@@ -12,12 +12,16 @@ Example:
 
 Input:
 
+```text
 5
 3 2 5 1 7
+```
 
 Output:
 
+```text
 5
+```
 
 ---
 
@@ -81,8 +85,8 @@ O(1)
 
 | Algorithm | Time      |
 | --------- | --------- |
-| Greedy    | 15.239 ns |
-| Naive     | 17.108 ns |
+| Greedy    | 15.171 ns |
+| Naive     | 17.949 ns |
 
 ---
 
@@ -94,13 +98,23 @@ The greedy algorithm performs better because it computes the required number of 
 
 The naive algorithm simulates every increment individually. Although it remains correct, it performs additional work whenever large adjustments are required. This increases execution time.
 
-From the benchmark results, the greedy implementation is faster than the naive implementation.
+The benchmark results show that the greedy implementation is faster than the naive implementation.
 
 The greedy algorithm also exhibits better cache behaviour because it performs a simple sequential scan over the array with minimal operations. The naive algorithm performs additional loop iterations, increasing instruction count and CPU workload.
 
 For large inputs, the performance gap grows significantly because the greedy algorithm scales linearly while the naive algorithm depends on both the number of elements and the total number of increments required.
 
 Therefore, the greedy algorithm is the preferred solution for production use.
+
+### Memory Impact
+
+Both implementations use constant auxiliary memory and require only a small number of variables during execution.
+
+### Cache Behaviour
+
+The greedy implementation performs fewer instructions and accesses memory in a predictable sequential pattern. This improves cache efficiency and reduces execution overhead.
+
+The naive implementation performs repeated increment operations and additional loop iterations, resulting in higher instruction counts and lower efficiency.
 
 ---
 
